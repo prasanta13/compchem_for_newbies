@@ -1,0 +1,5 @@
+title: "CompChem for Newbies"
+description: "A beginner-friendly computational chemistry resource."
+theme: minima   # simplest built-in theme
+markdown: kramdown
+
