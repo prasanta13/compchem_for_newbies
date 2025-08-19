@@ -1,29 +1,25 @@
 title: "CompChem for Newbies"
-description: "A beginner-friendly computational chemistry resource."
-theme: minima   # simplest built-in theme
+description: "Welcome! This is a simple GitHub Pages site with notebooks, scripts, images, and references."
+theme: minima
+
+# Navigation menu
+nav:
+  - title: "Home"
+    url: /
+  - title: "Notebooks"
+    url: /notebooks/
+  - title: "Scripts"
+    url: /scripts/
+  - title: "Images"
+    url: /images/
+  - title: "XYZ Files"
+    url: /xyz/
+  - title: "References"
+    url: /references/
+
+# Enable Markdown + MathJax
 markdown: kramdown
-
-# Enable notebooks as a collection
-collections:
-  notebooks:
-    output: true   # publish pages in this collection
-    permalink: /notebooks/:name/
-
-# Navigation menu (header)
-minima:
-  nav:
-    - title: "Home"
-      url: /
-    - title: "Notebooks"
-      url: /notebooks/
-    - title: "Notebooks HTML"
-      url: /notebooks_html/   # link to standalone HTML files
-    - title: "Scripts"
-      url: /scripts/
-    - title: "Images"
-      url: /images/
-    - title: "XYZ Files"
-      url: /xyz/
-    - title: "References"
-      url: /references/
+kramdown:
+  math_engine: mathjax
+  input: GFM
 
