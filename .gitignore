@@ -1,2 +1,12 @@
+# Jupyter
 .ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
+*.ipynb~
+
+# Python
+__pycache__/
+*.pyc
+
+# Build output
+_site/
+notebooks_html/*
+

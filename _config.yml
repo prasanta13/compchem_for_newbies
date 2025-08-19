@@ -1,9 +1,9 @@
 title: "CompChem for Newbies"
 description: "Learning computational chemistry step by step"
-theme: minima
+remote_theme: rundocs/jekyll-rtd-theme
 markdown: kramdown
 
-# Enable MathJax for LaTeX support
+# Enable MathJax for LaTeX
 kramdown:
   input: GFM
   math_engine: mathjax
@@ -16,7 +16,7 @@ collections:
     output: true
     permalink: /notebooks/:name
 
-# Navigation bar
+# Sidebar Navigation
 nav:
   - title: "Home"
     url: /
@@ -32,3 +32,4 @@ nav:
     url: /xyz/
   - title: "References"
     url: /references/refs.html
+
