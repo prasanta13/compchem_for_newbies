@@ -1,6 +1,7 @@
 title: "CompChem for Newbies"
 description: "Learning computational chemistry step by step"
-remote_theme: carlosperate/jekyll-theme-rtd   # actively maintained RTD-style theme
+baseurl: "/compchem_for_newbies"
+remote_theme: carlosperate/jekyll-theme-rtd
 markdown: kramdown
 
 # Enable MathJax for LaTeX
@@ -19,21 +20,22 @@ collections:
 # Sidebar Navigation
 nav:
   - title: "Home"
-    url: /
+    url: "/compchem_for_newbies/"
   - title: "Notes"
     children:
       - title: "Introduction"
-        url: /notebooks/introduction
+        url: "/compchem_for_newbies/notebooks/introduction"
       - title: "Basis Sets"
-        url: /notebooks/basis_sets
+        url: "/compchem_for_newbies/notebooks/basis_sets"
       - title: "Electron Correlation"
-        url: /notebooks/correlation
+        url: "/compchem_for_newbies/notebooks/correlation"
   - title: "XYZ Files"
-    url: /xyz/
+    url: "/compchem_for_newbies/xyz/"
   - title: "References"
-    url: /references/refs.html
+    url: "/compchem_for_newbies/references/refs.html"
 
 # GitHub Pages plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
