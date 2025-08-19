@@ -3,3 +3,27 @@ description: "A beginner-friendly computational chemistry resource."
 theme: minima   # simplest built-in theme
 markdown: kramdown
 
+# Enable notebooks as a collection
+collections:
+  notebooks:
+    output: true   # publish pages in this collection
+    permalink: /notebooks/:name/
+
+# Navigation menu (header)
+minima:
+  nav:
+    - title: "Home"
+      url: /
+    - title: "Notebooks"
+      url: /notebooks/
+    - title: "Notebooks HTML"
+      url: /notebooks_html/   # link to standalone HTML files
+    - title: "Scripts"
+      url: /scripts/
+    - title: "Images"
+      url: /images/
+    - title: "XYZ Files"
+      url: /xyz/
+    - title: "References"
+      url: /references/
+
