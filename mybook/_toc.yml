@@ -1,9 +1,0 @@
-format: jb-book
-root: intro
-chapters:
-  - file: notebooks/section1
-    sections:
-      - file: notebooks/section1_example1
-  - file: notebooks/section2
-    sections:
-      - file: notebooks/section2_example1
