@@ -10,6 +10,12 @@ kramdown:
   math_engine_opts:
     preview: true
 
+# Declare notebooks as a collection
+collections:
+  notebooks:
+    output: true
+    permalink: /notebooks/:name
+
 # Navigation bar
 nav:
   - title: "Home"
@@ -17,13 +23,12 @@ nav:
   - title: "Notes"
     children:
       - title: "Introduction"
-        url: /_notebooks/introduction.html
+        url: /notebooks/introduction
       - title: "Basis Sets"
-        url: /_notebooks/basis_sets.html
+        url: /notebooks/basis_sets
       - title: "Electron Correlation"
-        url: /_notebooks/correlation.html
+        url: /notebooks/correlation
   - title: "XYZ Files"
     url: /xyz/
   - title: "References"
     url: /references/refs.html
-
