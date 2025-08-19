@@ -1,6 +1,6 @@
 title: "CompChem for Newbies"
 description: "Learning computational chemistry step by step"
-remote_theme: sphinx-themes/jekyll-rtd-theme
+remote_theme: carlosperate/jekyll-theme-rtd   # actively maintained RTD-style theme
 markdown: kramdown
 
 # Enable MathJax for LaTeX
@@ -33,3 +33,7 @@ nav:
   - title: "References"
     url: /references/refs.html
 
+# GitHub Pages plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
