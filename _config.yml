@@ -1,25 +1,29 @@
 title: "CompChem for Newbies"
-description: "Welcome! This is a simple GitHub Pages site with notebooks, scripts, images, and references."
+description: "Learning computational chemistry step by step"
 theme: minima
+markdown: kramdown
 
-# Navigation menu
+# Enable MathJax for LaTeX support
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true
+
+# Navigation bar
 nav:
   - title: "Home"
     url: /
-  - title: "Notebooks"
-    url: /notebooks/
-  - title: "Scripts"
-    url: /scripts/
-  - title: "Images"
-    url: /images/
+  - title: "Notes"
+    children:
+      - title: "Introduction"
+        url: /_notebooks/introduction.html
+      - title: "Basis Sets"
+        url: /_notebooks/basis_sets.html
+      - title: "Electron Correlation"
+        url: /_notebooks/correlation.html
   - title: "XYZ Files"
     url: /xyz/
   - title: "References"
-    url: /references/
-
-# Enable Markdown + MathJax
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
-  input: GFM
+    url: /references/refs.html
 
