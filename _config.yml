@@ -1,6 +1,6 @@
 title: "CompChem for Newbies"
 description: "Learning computational chemistry step by step"
-remote_theme: rundocs/jekyll-rtd-theme
+remote_theme: sphinx-themes/jekyll-rtd-theme
 markdown: kramdown
 
 # Enable MathJax for LaTeX
