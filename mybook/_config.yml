@@ -1,5 +1,5 @@
 title: "Computational Chemistry for Newbies"
 author: "Prasanta"
-logo: ""
-favicon: ""
-
+execute:
+  execute_notebooks: off
+only_build_toc_files: true

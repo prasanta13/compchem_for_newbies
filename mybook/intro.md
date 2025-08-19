@@ -1,11 +1,8 @@
-# Welcome to your Jupyter Book
+# Computational Chemistry for Newbies
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Welcome! This site offers clear, runnable ideas for newcomers to computational chemistry:
+- Short theory refreshers
+- Jupyter notebooks with code and plots
+- Supporting scripts, figures, and data files
 
-Check out the content pages bundled with this sample book to see more.
-
-```{tableofcontents}
-```
+Browse the sections from the sidebar to get started.

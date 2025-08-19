@@ -3,9 +3,7 @@ root: intro
 chapters:
   - file: notebooks/section1
     sections:
-      - file: notebooks/example1
-      - file: notebooks/example2
+      - file: notebooks/section1_example1
   - file: notebooks/section2
     sections:
-      - file: notebooks/example3
-
+      - file: notebooks/section2_example1

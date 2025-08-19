@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+jb_env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb~
+
+# Jupyter Book build
+mybook/_build/
+docs/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
