@@ -1,13 +1,12 @@
----
+<!-- ---
 title: "Introduction to Computational Chemistry"
----
+--- -->
 
-# Introduction to Computational Chemistry
+# Foreward
 
-Computational chemistry allows us to study molecules and reactions using computer simulations.  
-We can calculate energies, molecular geometries, vibrational frequencies, and more.
+Often I think about how could I have learned this subject better. I believe there may be numerous other students who also think the same. As a kinesthetic learner, I often wonder about the equation(s), how do they look and how they shaped the modern **Quantum Chemistry** from **Quantum Mechanics**. This is a ongoing project which I want to continue as long a I can. This is also a testament of my learning. As I learn, I write more to learn more. 
 
-## Key Concepts
+At first, I will try to cover the **Hartree-Fock** approximation. It is imperative that all of us, students of computational chemistry to grasp this particular method. Then I will try to cover the basis-sets, different integrals and implement them with simple python codes.
 
 ### Quantum Mechanics
 
