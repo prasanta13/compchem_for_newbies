@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      }
+      nav {
+        width: 200px;
+        min-height: 100vh;
+        background: #f4f4f4;
+        padding: 1rem;
+        border-right: 1px solid #ddd;
+      }
+      nav h2 {
+        font-size: 1.2em;
+        margin-top: 0;
+      }
+      nav a {
+        display: block;
+        margin: 0.3rem 0;
+        color: #0366d6;
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2>Chapters</h2>
+      <a href="{{ '/hf.html' | relative_url }}">HF</a>
+      <a href="{{ '/mp2.html' | relative_url }}">MP2</a>
+      <a href="{{ '/ccsd.html' | relative_url }}">CCSD</a>
+      <a href="{{ '/dft.html' | relative_url }}">DFT</a>
+    </nav>
+    <main>
+      {{ content }}
+    </main>
+  </body>
+</html>
+
