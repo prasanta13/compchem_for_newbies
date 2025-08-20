@@ -1,43 +1,7 @@
-title: "CompChem for Newbies"
-description: "Learning computational chemistry step by step"
-remote_theme: carlosperate/jekyll-theme-rtd
-markdown: kramdown
-
-url: "https://prasanta13.github.io"
-baseurl: "/compchem_for_newbies"
-
-# Enable MathJax for LaTeX
-kramdown:
-  input: GFM
-  math_engine: mathjax
-  math_engine_opts:
-    preview: true
-
-# Declare notebooks as a collection
-collections:
-  notebooks:
-    output: true
-    permalink: /notebooks/:name
-
-# Sidebar Navigation
-nav:
-  - title: "Home"
-    url: "{{ site.baseurl }}/"
-  - title: "Notes"
-    children:
-      - title: "Introduction"
-        url: "{{ site.baseurl }}/notebooks/introduction"
-      - title: "Basis Sets"
-        url: "{{ site.baseurl }}/notebooks/basis_sets"
-      - title: "Electron Correlation"
-        url: "{{ site.baseurl }}/notebooks/correlation"
-  - title: "XYZ Files"
-    url: "{{ site.baseurl }}/xyz/"
-  - title: "References"
-    url: "{{ site.baseurl }}/references/refs.html"
-
-# GitHub Pages plugins
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - README.md
