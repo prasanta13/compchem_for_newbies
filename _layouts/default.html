@@ -9,35 +9,50 @@
         display: flex;
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        background: #fdfdfd;
       }
       nav {
-        width: 200px;
+        width: 220px;
         min-height: 100vh;
-        background: #f4f4f4;
+        background: #2c3e50; /* dark sidebar */
         padding: 1rem;
         border-right: 1px solid #ddd;
+        color: white;
       }
       nav h2 {
         font-size: 1.2em;
-        margin-top: 0;
+        margin-top: 1rem;
+        color: #ecf0f1;
+        border-bottom: 1px solid #7f8c8d;
+        padding-bottom: 0.3rem;
       }
       nav a {
         display: block;
-        margin: 0.3rem 0;
-        color: #0366d6;
+        margin: 0.5rem 0;
+        color: #ecf0f1;
         text-decoration: none;
+        font-weight: 500;
       }
       nav a:hover {
-        text-decoration: underline;
+        color: #1abc9c; /* highlight green on hover */
       }
       main {
         flex: 1;
         padding: 2rem;
+        background: #ffffff;
+      }
+      header {
+        font-size: 1.4em;
+        font-weight: bold;
+        margin-bottom: 1rem;
       }
     </style>
   </head>
   <body>
     <nav>
+      <header>
+        <a href="{{ '/' | relative_url }}">🏠 Home</a>
+      </header>
       <h2>Chapters</h2>
       <a href="{{ '/hf.html' | relative_url }}">HF</a>
       <a href="{{ '/mp2.html' | relative_url }}">MP2</a>
