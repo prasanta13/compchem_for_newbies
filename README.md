@@ -10,16 +10,21 @@ At first, I will try to cover the **Hartree-Fock** approximation. It is imperati
 
 ### Quantum Mechanics
 
-The **Schrödinger equation** is central:
+The concept of finding approximate solution to the **Schrödinger equation** is central: Here, it also means that we try to find the solution of non-relativistic time-indepdendent **Schrödinger equation** .
 
 $$
 \hat{H} \Psi = E \Psi
 $$
 
 where:  
-- \(\hat{H}\) is the Hamiltonian operator  
-- \(\Psi\) is the wavefunction  
-- \(E\) is the energy
+- $\hat{H}$  is the Hamiltonian operator for a system of nuclei and electrons having position vector $**R_{A}$ $**r_{i}$ respectively.
+- $\Psi$ is the wavefunction  
+- $E$ is the energy
+
+The $\hat{H}$ for N electrons and M nuclei is 
+$$
+\hat{H} = - \sum_{i=2}^{N} \frac{1}{2}\nabla^{2}_{i}
+$$
 
 ### Basis Sets
 
