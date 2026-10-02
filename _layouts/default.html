@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    }
-  };
-</script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <head>
     <meta charset="UTF-8">
     <title>{{ page.title }}</title>
@@ -64,6 +54,7 @@
         <a href="{{ site.baseurl }}/">🏠 Home</a>
       </header>
       <h2>Chapters</h2>
+      <a href="{{ '/basis_set.html' | relative_url }}">Basis sets</a>
       <a href="{{ '/hf.html' | relative_url }}">HF</a>
       <a href="{{ '/mp2.html' | relative_url }}">MP2</a>
       <a href="{{ '/ccsd.html' | relative_url }}">CCSD</a>
@@ -85,7 +76,6 @@
         }
       };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
