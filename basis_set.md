@@ -24,9 +24,7 @@ A basis set works in the same way:
 
 ## What is an orbital, mathematically?
 
-An orbital is a function. You give it a point in space, $\mathbf{r} = (x, y, z)$, and it gives you back a number, $\phi(\mathbf{r})$. The square of that number, $\phi(\mathbf{r})^2$, tells you how likely it is to find the electron near that point.
-
-Finding an orbital exactly would mean finding its value at infinitely many points, which no computer can do. So we restrict ourselves to orbitals of a particular form:
+An orbital is a function. You give it a point in space, $\mathbf{r} = (x, y, z)$, and it gives you back a number, $\phi(\mathbf{r})$ (say, atomic orbital). From the LCAO (Linear Combination of Atomic Orbitals), perspective, an MO (Molecular Orbital) can be formed from the linear combination of the atomic orbitals (refer to the recipe, here again). Finding the true MO exactly would mean finding its value at infinitely many points, which no computer can do. So we restrict ourselves to orbitals of a particular form:
 
 $$
 \phi_i(\mathbf{r}) = \sum_{\mu=1}^{K} C_{\mu i}\thinspace \chi_\mu(\mathbf{r})
@@ -38,9 +36,7 @@ Here:
 - $C_{\mu i}$ is how much of basis function $\mu$ goes into orbital $i$;
 - the impossible problem "find a function" has become the finite problem "find $K$ numbers for each orbital".
 
-This is called the **linear combination of atomic orbitals** (LCAO) approximation, because the basis functions are centred on the atoms and look like atomic orbitals.
-
-A simple example: in the H₂ molecule, the lowest orbital is roughly a 1s function on atom A plus a 1s function on atom B, mixed in equal amounts:
+This is called the **linear combination of atomic orbitals** (LCAO) approximation, because the basis functions are centred on the atoms and look like atomic orbitals. A simple example: in the H₂ molecule, the lowest orbital is roughly a 1s function on atom A plus a 1s function on atom B, mixed in equal amounts:
 
 $$
 \phi_1 \approx C_{A}\thinspace \chi_{1s}^{A} + C_{B}\thinspace \chi_{1s}^{B}, \qquad C_A = C_B
@@ -48,21 +44,19 @@ $$
 
 ## Slater functions and Gaussian functions
 
-What should the building blocks look like? For the hydrogen atom we know the exact 1s orbital. In atomic units (lengths measured in bohr, 1 bohr = 0.529 Å) it is
+What should the building blocks look like? For the hydrogen atom we know the exact 1s orbital. In atomic units (lengths measured in bohr, 1 bohr = 0.529 Angstroem) it is
 
 $$
 \psi_{1s}(r) = \frac{1}{\sqrt{\pi}}\thinspace e^{-r}
 $$
 
-where $r$ is the distance from the nucleus. Functions with the shape $e^{-\zeta r}$ are called **Slater-type orbitals** (STOs). The number $\zeta$ ("zeta") controls how tight or spread out the function is. Slater functions have the right shape: a sharp point (a "cusp") at the nucleus, and a slow decay far away from it.
+where $r$ is the distance from the nucleus. Functions with the shape $e^{-\zeta r}$ are called **Slater-type orbitals** (STOs). The number $\zeta$ ("zeta") controls how tight or spread out the function is. Slater functions have the right shape: a sharp point (a "cusp") at the nucleus, and a slow decay far away from it. Unfortunately, they have one big practical problem. The Hartree-Fock or other methods method needs integrals that involve four basis functions at once, possibly sitting on four different atoms (I explain these in the [Hartree-Fock chapter](hf.md)). With Slater functions those integrals are very hard to compute.
 
-Unfortunately, they have one big practical problem. The Hartree-Fock method needs integrals that involve four basis functions at once, possibly sitting on four different atoms (I explain these in the [Hartree-Fock chapter](hf.md)). With Slater functions those integrals are very hard to compute.
-
-**Gaussian-type orbitals** (GTOs) use the shape $e^{-\alpha r^2}$ instead. On their own they have the wrong shape: they are flat at the nucleus (no cusp) and die away too quickly at large distance. But they have one enormous advantage, the **Gaussian product theorem**: the product of two Gaussians centred on two different atoms is another Gaussian, centred at a point between them.
+**Gaussian-type orbitals** (GTOs) use the shape $e^{-\alpha r^2}$ instead (compare with Gaussian or a normal distribution curve). On their own they have the wrong shape: they are flat at the nucleus (no cusp) and die away too quickly at large distance. But they have one enormous advantage, the **Gaussian product theorem**: the product of two Gaussians centred on two different atoms is another Gaussian, centred at a point between them.
 
 $$
-e^{-\alpha \lvert \mathbf{r}-\mathbf{A} \rvert^2}\thickspace e^{-\beta \lvert \mathbf{r}-\mathbf{B} \rvert^2}
-= K_{AB}\thickspace e^{-(\alpha+\beta) \lvert \mathbf{r}-\mathbf{P} \rvert^2},
+e^{-\alpha \lvert \mathbf{r}-\mathbf{A} \rvert^2}\mskip5mu e^{-\beta \lvert \mathbf{r}-\mathbf{B} \rvert^2}
+= K_{AB}\mskip5mu e^{-(\alpha+\beta) \lvert \mathbf{r}-\mathbf{P} \rvert^2},
 \qquad
 \mathbf{P} = \frac{\alpha \mathbf{A} + \beta \mathbf{B}}{\alpha + \beta},
 \qquad
@@ -132,7 +126,7 @@ So far I have only talked about spherical s functions. Real basis sets also cont
 - a **d** shell contains 5 functions;
 - an **f** shell contains 7 functions.
 
-A shell is a group of functions that share the same exponents and contraction coefficients and only differ in direction. (Some programs use 6 Cartesian d functions instead of 5. PySCF uses 5 by default; setting `cart=True` in `gto.M` switches to 6.)
+A shell is a group of functions that share the same exponents and contraction coefficients and only differ in direction. (Using cartesian reprentation, one would have 6 Cartesian d functions instead of 5. PySCF uses 5 by default; setting `cart=True` in `gto.M` switches to 6. If you use Gaussian suite of programs, using *6D 10F* in the route allow to use cartesian basis sets)
 
 ## Reading basis-set names
 
@@ -176,7 +170,7 @@ for label in mol.ao_labels():
     print(label)
 ```
 
-The coordinates are in Å by default. The labels tell you which atom each function sits on and what type it is, for example the oxygen 1s, 2s and three 2p functions followed by one 1s function on each hydrogen. Change `basis='sto-3g'` to `basis='cc-pvdz'` and run it again: you should get 24 functions, including d functions on oxygen and p functions on the hydrogens.
+The coordinates are in Angstroem by default. The labels tell you which atom each function sits on and what type it is, for example the oxygen 1s, 2s and three 2p functions followed by one 1s function on each hydrogen. Change `basis='sto-3g'` to `basis='cc-pvdz'` and run it again: you should get 24 functions, including d functions on oxygen and p functions on the hydrogens.
 
 You can also use different basis sets on different elements, for example `basis={'O': 'cc-pvdz', 'H': 'sto-3g'}`.
 

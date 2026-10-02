@@ -35,13 +35,13 @@ $$
 
 Let me read it term by term. There are $N$ electrons, labelled $i$ and $j$, and $M$ nuclei, labelled $A$.
 
-1. $-\frac{1}{2}\nabla^{2}_{i}$ is the **kinetic energy** of electron $i$. The symbol $\nabla^2$ ("del squared") measures how curved a function is; the more sharply the wavefunction bends, the higher the kinetic energy.
+1. $-\frac{1}{2}\nabla^{2}_{i}$ is the **kinetic energy** operator of electron $i$ which acts on the wavefunction $\Psi$. The symbol $\nabla^2$ ("del squared") mathematically measures how curved a function is; the more sharply the wavefunction bends in the spatial extent, the higher the kinetic energy.
 2. $-Z_A / r_{iA}$ is the **attraction** between electron $i$ and nucleus $A$. Here $Z_A$ is the charge of the nucleus (1 for hydrogen, 8 for oxygen) and $r_{iA}$ is the distance between them. It is negative because opposite charges attract.
 3. $1/r_{ij}$ is the **repulsion** between electrons $i$ and $j$, where $r_{ij}$ is the distance between them. The condition $j > i$ makes sure each pair is counted once.
 
 Two remarks about this equation.
 
-**Atomic units.** There are no constants such as the electron mass or the charge of the electron in the equation, because we measure everything in atomic units, where those constants are all equal to 1. Lengths are measured in bohr (1 bohr = 0.529 Å) and energies in Hartree (1 Hartree = 27.211 eV = 2625.5 kJ/mol).
+**Atomic units.** There are no constants such as the electron mass or the charge of the electron in the equation, because we measure everything in atomic units, where those constants are all equal to 1. Lengths are measured in bohr (1 bohr = 0.529 Angstroem) and energies in Hartree (1 Hartree = 27.211 eV = 2625.5 kJ/mol).
 
 **The Born-Oppenheimer approximation.** A nucleus is at least about 1800 times heavier than an electron, so on the time scale of electronic motion the nuclei look frozen. We therefore keep the nuclei fixed, solve for the electrons, and add the repulsion between the nuclei at the end as a constant:
 
@@ -119,9 +119,9 @@ $$
 The angle brackets are shorthand for integrals over the coordinates of all electrons:
 
 $$
-\langle \Psi \vert \hat{H} \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \hat{H}\thinspace \Psi \thickspace d\mathbf{x}_1 \cdots d\mathbf{x}_N,
+\langle \Psi \vert \hat{H} \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \hat{H}\thinspace \Psi \mskip5mu d\mathbf{x}_1 \cdots d\mathbf{x}_N,
 \qquad
-\langle \Psi \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \Psi \thickspace d\mathbf{x}_1 \cdots d\mathbf{x}_N
+\langle \Psi \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \Psi \mskip5mu d\mathbf{x}_1 \cdots d\mathbf{x}_N
 $$
 
 (The star means complex conjugate; for the real functions we use from Section 5 onwards it does nothing.) So the lower the energy, the closer we are to the truth. The best Slater determinant is the one with the **lowest energy**. To find it we need two things: a formula for the energy of a Slater determinant, and a way to minimise it.
@@ -164,7 +164,7 @@ where $h_{aa} = \langle \psi_a \vert \hat{h} \vert \psi_a \rangle$. The cross te
 **The two-electron part.** Define
 
 $$
-\langle pq \vert rs \rangle = \iint \psi_p^{\ast}(\mathbf{x}_1)\thinspace \psi_q^{\ast}(\mathbf{x}_2)\thinspace \frac{1}{r_{12}}\thinspace \psi_r(\mathbf{x}_1)\thinspace \psi_s(\mathbf{x}_2)\thickspace d\mathbf{x}_1\thinspace d\mathbf{x}_2
+\langle pq \vert rs \rangle = \iint \psi_p^{\ast}(\mathbf{x}_1)\thinspace \psi_q^{\ast}(\mathbf{x}_2)\thinspace \frac{1}{r_{12}}\thinspace \psi_r(\mathbf{x}_1)\thinspace \psi_s(\mathbf{x}_2)\mskip5mu d\mathbf{x}_1\thinspace d\mathbf{x}_2
 $$
 
 Then
@@ -230,7 +230,7 @@ $$
 using the **chemists' notation** for two-electron integrals:
 
 $$
-(ij \vert kl) = \iint \phi_i(\mathbf{r}_1)\thinspace \phi_j(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \phi_k(\mathbf{r}_2)\thinspace \phi_l(\mathbf{r}_2)\thickspace d\mathbf{r}_1\thinspace d\mathbf{r}_2
+(ij \vert kl) = \iint \phi_i(\mathbf{r}_1)\thinspace \phi_j(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \phi_k(\mathbf{r}_2)\thinspace \phi_l(\mathbf{r}_2)\mskip5mu d\mathbf{r}_1\thinspace d\mathbf{r}_2
 $$
 
 In chemists' notation, the left pair of indices belongs to electron 1 and the right pair to electron 2.
@@ -361,7 +361,7 @@ The attraction to all the nuclei. It is negative. Together, $\mathbf{H}^{\text{c
 **Two-electron repulsion integrals**, `int2e`:
 
 $$
-(\mu\nu \vert \lambda\sigma) = \iint \chi_\mu(\mathbf{r}_1)\thinspace \chi_\nu(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \chi_\lambda(\mathbf{r}_2)\thinspace \chi_\sigma(\mathbf{r}_2)\thickspace d\mathbf{r}_1\thinspace d\mathbf{r}_2
+(\mu\nu \vert \lambda\sigma) = \iint \chi_\mu(\mathbf{r}_1)\thinspace \chi_\nu(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \chi_\lambda(\mathbf{r}_2)\thinspace \chi_\sigma(\mathbf{r}_2)\mskip5mu d\mathbf{r}_1\thinspace d\mathbf{r}_2
 $$
 
 Read it as the electrostatic repulsion between two charge clouds: $\chi_\mu\chi_\nu$ for electron 1 and $\chi_\lambda\chi_\sigma$ for electron 2. These integrals are the expensive part of Hartree-Fock. With four indices there are $K^4$ of them. Swapping $\mu \leftrightarrow \nu$, swapping $\lambda \leftrightarrow \sigma$, or swapping the two pairs does not change the value, which cuts the number of distinct integrals by about a factor of 8. For water in cc-pVDZ, $K = 24$, so there are $24^4 = 331{,}776$ integrals, of which 45,150 are distinct. This $K^4$ growth is why Hartree-Fock is said to scale formally as the fourth power of the basis size, and why the [Gaussian product theorem](basis_set.md) matters so much.
