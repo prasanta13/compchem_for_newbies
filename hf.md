@@ -632,3 +632,7 @@ Going beyond Hartree-Fock means adding correlation. [MP2](mp2.md) and [CCSD](ccs
 
 👉 More on HF: [Wikipedia](https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method)  
 👉 PySCF docs: [PySCF Hartree–Fock](https://pyscf.org/user/hf.html)
+
+## Acknowledgements
+
+The Basis Sets and Hartree-Fock chapters were drafted with the assistance of a large language model. I set the structure and scope, checked the derivations against Szabo and Ostlund, ran and verified every PySCF example, and edited the text throughout. Any errors are mine.

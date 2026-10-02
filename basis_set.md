@@ -222,3 +222,7 @@ Next: [Hartree-Fock](hf.md), where these basis functions are put to work.
 - A. Szabo and N. S. Ostlund, *Modern Quantum Chemistry*, Dover, section 3.6 on basis sets.
 - [Basis Set Exchange](https://www.basissetexchange.org/): download almost any basis set and see its exponents and coefficients.
 - PySCF docs: [Molecular structure and basis sets](https://pyscf.org/user/gto.html)
+
+## Acknowledgements
+
+The Basis Sets and Hartree-Fock chapters were drafted with the assistance of a large language model. I set the structure and scope, checked the derivations against Szabo and Ostlund, ran and verified every PySCF example, and edited the text throughout. Any errors are mine.
