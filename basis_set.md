@@ -29,7 +29,7 @@ An orbital is a function. You give it a point in space, $\mathbf{r} = (x, y, z)$
 Finding an orbital exactly would mean finding its value at infinitely many points, which no computer can do. So we restrict ourselves to orbitals of a particular form:
 
 $$
-\phi_i(\mathbf{r}) = \sum_{\mu=1}^{K} C_{\mu i}\, \chi_\mu(\mathbf{r})
+\phi_i(\mathbf{r}) = \sum_{\mu=1}^{K} C_{\mu i}\thinspace \chi_\mu(\mathbf{r})
 $$
 
 Here:
@@ -43,7 +43,7 @@ This is called the **linear combination of atomic orbitals** (LCAO) approximatio
 A simple example: in the H₂ molecule, the lowest orbital is roughly a 1s function on atom A plus a 1s function on atom B, mixed in equal amounts:
 
 $$
-\phi_1 \approx C_{A}\, \chi_{1s}^{A} + C_{B}\, \chi_{1s}^{B}, \qquad C_A = C_B
+\phi_1 \approx C_{A}\thinspace \chi_{1s}^{A} + C_{B}\thinspace \chi_{1s}^{B}, \qquad C_A = C_B
 $$
 
 ## Slater functions and Gaussian functions
@@ -51,7 +51,7 @@ $$
 What should the building blocks look like? For the hydrogen atom we know the exact 1s orbital. In atomic units (lengths measured in bohr, 1 bohr = 0.529 Å) it is
 
 $$
-\psi_{1s}(r) = \frac{1}{\sqrt{\pi}}\, e^{-r}
+\psi_{1s}(r) = \frac{1}{\sqrt{\pi}}\thinspace e^{-r}
 $$
 
 where $r$ is the distance from the nucleus. Functions with the shape $e^{-\zeta r}$ are called **Slater-type orbitals** (STOs). The number $\zeta$ ("zeta") controls how tight or spread out the function is. Slater functions have the right shape: a sharp point (a "cusp") at the nucleus, and a slow decay far away from it.
@@ -61,8 +61,8 @@ Unfortunately, they have one big practical problem. The Hartree-Fock method need
 **Gaussian-type orbitals** (GTOs) use the shape $e^{-\alpha r^2}$ instead. On their own they have the wrong shape: they are flat at the nucleus (no cusp) and die away too quickly at large distance. But they have one enormous advantage, the **Gaussian product theorem**: the product of two Gaussians centred on two different atoms is another Gaussian, centred at a point between them.
 
 $$
-e^{-\alpha \lvert \mathbf{r}-\mathbf{A} \rvert^2}\; e^{-\beta \lvert \mathbf{r}-\mathbf{B} \rvert^2}
-= K_{AB}\; e^{-(\alpha+\beta) \lvert \mathbf{r}-\mathbf{P} \rvert^2},
+e^{-\alpha \lvert \mathbf{r}-\mathbf{A} \rvert^2}\thickspace e^{-\beta \lvert \mathbf{r}-\mathbf{B} \rvert^2}
+= K_{AB}\thickspace e^{-(\alpha+\beta) \lvert \mathbf{r}-\mathbf{P} \rvert^2},
 \qquad
 \mathbf{P} = \frac{\alpha \mathbf{A} + \beta \mathbf{B}}{\alpha + \beta},
 \qquad
@@ -76,7 +76,7 @@ Because of this, an integral over four Gaussians on four atoms collapses into an
 To fix the wrong shape, we add up several Gaussians of different widths with a fixed recipe. Each individual Gaussian is called a **primitive**, and the sum is called a **contracted Gaussian**:
 
 $$
-\chi(\mathbf{r}) = \sum_{k=1}^{L} d_k\, N_k\, e^{-\alpha_k r^2}
+\chi(\mathbf{r}) = \sum_{k=1}^{L} d_k\thinspace N_k\thinspace e^{-\alpha_k r^2}
 $$
 
 - $\alpha_k$ are the **exponents** (how tight each primitive is);

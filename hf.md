@@ -30,9 +30,7 @@ The plan is:
 On the [home page](index.md) I wrote down the Schrödinger equation, $\hat{H}\Psi = E\Psi$, and the electronic Hamiltonian:
 
 $$
-\hat{H}_{\text{elec}} = -\sum_{i=1}^{N} \frac{1}{2}\nabla^{2}_{i}
- - \sum_{i=1}^{N}\sum_{A=1}^{M} \frac{Z_A}{r_{iA}}
- + \sum_{i=1}^{N}\sum_{j>i}^{N} \frac{1}{r_{ij}}
+\hat{H}_{\text{elec}} = -\sum_{i=1}^{N} \frac{1}{2}\nabla^{2}_{i} - \sum_{i=1}^{N}\sum_{A=1}^{M} \frac{Z_A}{r_{iA}} + \sum_{i=1}^{N}\sum_{j>i}^{N} \frac{1}{r_{ij}}
 $$
 
 Let me read it term by term. There are $N$ electrons, labelled $i$ and $j$, and $M$ nuclei, labelled $A$.
@@ -70,7 +68,7 @@ What do we lose? Real electrons avoid each other instantly: if one electron is o
 Electrons have a property called spin, which can be "up" or "down". We write the two possibilities as spin functions $\alpha(\omega)$ and $\beta(\omega)$, where $\omega$ is a spin coordinate. A **spin orbital** is a spatial orbital $\phi(\mathbf{r})$ multiplied by a spin function:
 
 $$
-\psi(\mathbf{x}) = \phi(\mathbf{r})\,\alpha(\omega) \quad \text{or} \quad \psi(\mathbf{x}) = \phi(\mathbf{r})\,\beta(\omega)
+\psi(\mathbf{x}) = \phi(\mathbf{r})\thinspace\alpha(\omega) \quad \text{or} \quad \psi(\mathbf{x}) = \phi(\mathbf{r})\thinspace\beta(\omega)
 $$
 
 where $\mathbf{x} = (\mathbf{r}, \omega)$ collects the position and the spin of an electron. The spin functions are orthonormal: integrating over $\omega$ gives $\langle \alpha \vert \alpha \rangle = \langle \beta \vert \beta \rangle = 1$ and $\langle \alpha \vert \beta \rangle = 0$.
@@ -82,7 +80,7 @@ A note on notation, which I keep throughout: $\Psi$ (capital) is the full wavefu
 The simplest way to combine orbitals is to multiply them: electron 1 in spin orbital $\psi_a$, electron 2 in $\psi_b$,
 
 $$
-\Psi(\mathbf{x}_1, \mathbf{x}_2) = \psi_a(\mathbf{x}_1)\, \psi_b(\mathbf{x}_2)
+\Psi(\mathbf{x}_1, \mathbf{x}_2) = \psi_a(\mathbf{x}_1)\thinspace \psi_b(\mathbf{x}_2)
 $$
 
 This is called a Hartree product, and it breaks a basic rule of nature. Electrons are identical, so swapping two of them must not change anything we can measure, and quantum mechanics requires more: the wavefunction must change sign when two electrons are swapped. This is the **antisymmetry principle**, and the Pauli exclusion principle you may know from general chemistry follows from it. The Hartree product does not change sign when you swap $\mathbf{x}_1$ and $\mathbf{x}_2$.
@@ -121,9 +119,9 @@ $$
 The angle brackets are shorthand for integrals over the coordinates of all electrons:
 
 $$
-\langle \Psi \vert \hat{H} \vert \Psi \rangle = \int \Psi^{\ast}\, \hat{H}\, \Psi \; d\mathbf{x}_1 \cdots d\mathbf{x}_N,
+\langle \Psi \vert \hat{H} \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \hat{H}\thinspace \Psi \thickspace d\mathbf{x}_1 \cdots d\mathbf{x}_N,
 \qquad
-\langle \Psi \vert \Psi \rangle = \int \Psi^{\ast}\, \Psi \; d\mathbf{x}_1 \cdots d\mathbf{x}_N
+\langle \Psi \vert \Psi \rangle = \int \Psi^{\ast}\thinspace \Psi \thickspace d\mathbf{x}_1 \cdots d\mathbf{x}_N
 $$
 
 (The star means complex conjugate; for the real functions we use from Section 5 onwards it does nothing.) So the lower the energy, the closer we are to the truth. The best Slater determinant is the one with the **lowest energy**. To find it we need two things: a formula for the energy of a Slater determinant, and a way to minimise it.
@@ -147,7 +145,7 @@ Take the two-electron determinant from Section 3, with orthonormal spin orbitals
 **The one-electron part.** $\hat{h}(1)$ only acts on electron 1, so for electron 2 the integral is just an overlap:
 
 $$
-\langle pq \vert \hat{h}(1) \vert rs \rangle = \langle \psi_p \vert \hat{h} \vert \psi_r \rangle \, \langle \psi_q \vert \psi_s \rangle
+\langle pq \vert \hat{h}(1) \vert rs \rangle = \langle \psi_p \vert \hat{h} \vert \psi_r \rangle \thinspace \langle \psi_q \vert \psi_s \rangle
 $$
 
 Expanding the determinant gives four terms:
@@ -166,7 +164,7 @@ where $h_{aa} = \langle \psi_a \vert \hat{h} \vert \psi_a \rangle$. The cross te
 **The two-electron part.** Define
 
 $$
-\langle pq \vert rs \rangle = \iint \psi_p^{\ast}(\mathbf{x}_1)\, \psi_q^{\ast}(\mathbf{x}_2)\, \frac{1}{r_{12}}\, \psi_r(\mathbf{x}_1)\, \psi_s(\mathbf{x}_2)\; d\mathbf{x}_1\, d\mathbf{x}_2
+\langle pq \vert rs \rangle = \iint \psi_p^{\ast}(\mathbf{x}_1)\thinspace \psi_q^{\ast}(\mathbf{x}_2)\thinspace \frac{1}{r_{12}}\thinspace \psi_r(\mathbf{x}_1)\thinspace \psi_s(\mathbf{x}_2)\thickspace d\mathbf{x}_1\thinspace d\mathbf{x}_2
 $$
 
 Then
@@ -188,10 +186,16 @@ $$
 E = h_{aa} + h_{bb} + J_{ab} - K_{ab}
 $$
 
-The two new quantities are worth understanding properly.
+The two new quantities are worth understanding properly. Written out in full, they are
 
-- The **Coulomb integral** $$J_{ab} = \iint \lvert \psi_a(\mathbf{x}_1) \rvert^2 \frac{1}{r_{12}} \lvert \psi_b(\mathbf{x}_2) \rvert^2 \, d\mathbf{x}_1 d\mathbf{x}_2$$ is ordinary electrostatics: the repulsion between the charge cloud of electron 1 and the charge cloud of electron 2.
-- The **exchange integral** $K_{ab} = \langle ab \vert ba \rangle$ has no classical counterpart. It appears only because the wavefunction is antisymmetric. Integrating over spin shows that it is zero unless $\psi_a$ and $\psi_b$ have the same spin (because $\langle \alpha \vert \beta \rangle = 0$). It enters with a minus sign and lowers the energy: antisymmetry keeps electrons of the same spin away from each other, so they repel each other less.
+$$
+J_{ab} = \iint \lvert \psi_a(\mathbf{x}_1) \rvert^2 \frac{1}{r_{12}} \lvert \psi_b(\mathbf{x}_2) \rvert^2 \thinspace d\mathbf{x}_1 d\mathbf{x}_2,
+\qquad
+K_{ab} = \langle ab \vert ba \rangle
+$$
+
+- The **Coulomb integral** $J_{ab}$ is ordinary electrostatics: the repulsion between the charge cloud of electron 1 and the charge cloud of electron 2.
+- The **exchange integral** $K_{ab}$ has no classical counterpart. It appears only because the wavefunction is antisymmetric. Integrating over spin shows that it is zero unless $\psi_a$ and $\psi_b$ have the same spin (because $\langle \alpha \vert \beta \rangle = 0$). It enters with a minus sign and lowers the energy: antisymmetry keeps electrons of the same spin away from each other, so they repel each other less.
 
 ### Any number of electrons
 
@@ -216,7 +220,7 @@ $$
 Here everything is now written with spatial orbitals:
 
 $$
-h_{ii} = \int \phi_i(\mathbf{r})\, \hat{h}\, \phi_i(\mathbf{r})\, d\mathbf{r},
+h_{ii} = \int \phi_i(\mathbf{r})\thinspace \hat{h}\thinspace \phi_i(\mathbf{r})\thinspace d\mathbf{r},
 \qquad
 J_{ij} = (ii \vert jj),
 \qquad
@@ -226,7 +230,7 @@ $$
 using the **chemists' notation** for two-electron integrals:
 
 $$
-(ij \vert kl) = \iint \phi_i(\mathbf{r}_1)\, \phi_j(\mathbf{r}_1)\, \frac{1}{r_{12}}\, \phi_k(\mathbf{r}_2)\, \phi_l(\mathbf{r}_2)\; d\mathbf{r}_1\, d\mathbf{r}_2
+(ij \vert kl) = \iint \phi_i(\mathbf{r}_1)\thinspace \phi_j(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \phi_k(\mathbf{r}_2)\thinspace \phi_l(\mathbf{r}_2)\thickspace d\mathbf{r}_1\thinspace d\mathbf{r}_2
 $$
 
 In chemists' notation, the left pair of indices belongs to electron 1 and the right pair to electron 2.
@@ -251,9 +255,9 @@ $$
 Here I have introduced the **Coulomb operator** $\hat{J}_j$ and the **exchange operator** $\hat{K}_j$, defined by what they do to a function $\phi$:
 
 $$
-\hat{J}_j\, \phi(\mathbf{r}_1) = \left[ \int \frac{\phi_j(\mathbf{r}_2)^2}{r_{12}}\, d\mathbf{r}_2 \right] \phi(\mathbf{r}_1),
+\hat{J}_j\thinspace \phi(\mathbf{r}_1) = \left[ \int \frac{\phi_j(\mathbf{r}_2)^2}{r_{12}}\thinspace d\mathbf{r}_2 \right] \phi(\mathbf{r}_1),
 \qquad
-\hat{K}_j\, \phi(\mathbf{r}_1) = \left[ \int \frac{\phi_j(\mathbf{r}_2)\, \phi(\mathbf{r}_2)}{r_{12}}\, d\mathbf{r}_2 \right] \phi_j(\mathbf{r}_1)
+\hat{K}_j\thinspace \phi(\mathbf{r}_1) = \left[ \int \frac{\phi_j(\mathbf{r}_2)\thinspace \phi(\mathbf{r}_2)}{r_{12}}\thinspace d\mathbf{r}_2 \right] \phi_j(\mathbf{r}_1)
 $$
 
 $\hat{J}_j$ is easy to picture: the bracket is the electrostatic potential created by the electron cloud in orbital $j$. $\hat{K}_j$ is stranger: it swaps $\phi$ and $\phi_j$ between the two positions, which is the operator form of the exchange integral.
@@ -261,7 +265,7 @@ $\hat{J}_j$ is easy to picture: the bracket is the electrostatic potential creat
 Adding up all the first-order changes and setting the total to zero:
 
 $$
-4 \left\langle \delta\phi_i \,\middle\vert\, \hat{h}\phi_i + \sum_{j} \left( 2\hat{J}_j - \hat{K}_j \right)\phi_i - \sum_j \varepsilon_{ij}\phi_j \right\rangle = 0
+4 \left\langle \delta\phi_i \thinspace\middle\vert\thinspace \hat{h}\phi_i + \sum_{j} \left( 2\hat{J}_j - \hat{K}_j \right)\phi_i - \sum_j \varepsilon_{ij}\phi_j \right\rangle = 0
 $$
 
 Since $\delta\phi_i$ can be any small change at all, the function on the right of the bar must itself be zero. Defining the **Fock operator**
@@ -270,12 +274,12 @@ $$
 \hat{f} = \hat{h} + \sum_{j=1}^{N/2} \left( 2\hat{J}_j - \hat{K}_j \right)
 $$
 
-we get $\hat{f}\,\phi_i = \sum_j \varepsilon_{ij}\, \phi_j$.
+we get $\hat{f}\thinspace\phi_i = \sum_j \varepsilon_{ij}\thinspace \phi_j$.
 
 One last simplification. If you mix the occupied orbitals among themselves with a rotation (a unitary transformation), the Slater determinant changes at most by a sign, so the energy and $\hat{f}$ do not change. We can therefore choose the rotation that makes the matrix $\varepsilon_{ij}$ diagonal. This gives the **Hartree-Fock equations**:
 
 $$
-\hat{f}\, \phi_i = \varepsilon_i\, \phi_i
+\hat{f}\thinspace \phi_i = \varepsilon_i\thinspace \phi_i
 $$
 
 This looks just like a one-electron Schrödinger equation, with the Fock operator in place of the Hamiltonian. The $\hat{h}$ part is an electron among the nuclei, and the $2\hat{J}_j - \hat{K}_j$ part is the mean field of all the other electrons, as promised in Section 2. The eigenvalue $\varepsilon_i$ is called the **orbital energy**.
@@ -292,23 +296,23 @@ Two useful facts about orbital energies:
 The Hartree-Fock equation is an equation for unknown functions, and solving it directly on a grid is only practical for atoms. In 1951 Roothaan and Hall independently showed how to turn it into a matrix problem: expand each orbital in a basis set, exactly as on the [basis sets](basis_set.md) page,
 
 $$
-\phi_i(\mathbf{r}) = \sum_{\nu=1}^{K} C_{\nu i}\, \chi_\nu(\mathbf{r})
+\phi_i(\mathbf{r}) = \sum_{\nu=1}^{K} C_{\nu i}\thinspace \chi_\nu(\mathbf{r})
 $$
 
 Substitute this into $\hat{f}\phi_i = \varepsilon_i\phi_i$:
 
 $$
-\sum_{\nu} C_{\nu i}\, \hat{f}\chi_\nu = \varepsilon_i \sum_{\nu} C_{\nu i}\, \chi_\nu
+\sum_{\nu} C_{\nu i}\thinspace \hat{f}\chi_\nu = \varepsilon_i \sum_{\nu} C_{\nu i}\thinspace \chi_\nu
 $$
 
 Now multiply both sides by $\chi_\mu(\mathbf{r})$ and integrate over $\mathbf{r}$. This turns the functions into numbers:
 
 $$
-\sum_{\nu} F_{\mu\nu}\, C_{\nu i} = \varepsilon_i \sum_{\nu} S_{\mu\nu}\, C_{\nu i},
+\sum_{\nu} F_{\mu\nu}\thinspace C_{\nu i} = \varepsilon_i \sum_{\nu} S_{\mu\nu}\thinspace C_{\nu i},
 \qquad
-F_{\mu\nu} = \int \chi_\mu\, \hat{f}\, \chi_\nu \, d\mathbf{r},
+F_{\mu\nu} = \int \chi_\mu\thinspace \hat{f}\thinspace \chi_\nu \thinspace d\mathbf{r},
 \qquad
-S_{\mu\nu} = \int \chi_\mu\, \chi_\nu \, d\mathbf{r}
+S_{\mu\nu} = \int \chi_\mu\thinspace \chi_\nu \thinspace d\mathbf{r}
 $$
 
 Writing this for all orbitals at once gives the **Roothaan-Hall equations**:
@@ -333,7 +337,7 @@ Every integral we need involves only the basis functions, which are fixed. So th
 **Overlap**, `int1e_ovlp`:
 
 $$
-S_{\mu\nu} = \int \chi_\mu(\mathbf{r})\, \chi_\nu(\mathbf{r})\, d\mathbf{r}
+S_{\mu\nu} = \int \chi_\mu(\mathbf{r})\thinspace \chi_\nu(\mathbf{r})\thinspace d\mathbf{r}
 $$
 
 How much two basis functions occupy the same region of space. The diagonal is 1, because the functions are normalised. For two functions on neighbouring atoms it is between 0 and 1, and larger when the atoms are closer.
@@ -341,7 +345,7 @@ How much two basis functions occupy the same region of space. The diagonal is 1,
 **Kinetic energy**, `int1e_kin`:
 
 $$
-T_{\mu\nu} = \int \chi_\mu(\mathbf{r}) \left( -\frac{1}{2}\nabla^2 \right) \chi_\nu(\mathbf{r})\, d\mathbf{r}
+T_{\mu\nu} = \int \chi_\mu(\mathbf{r}) \left( -\frac{1}{2}\nabla^2 \right) \chi_\nu(\mathbf{r})\thinspace d\mathbf{r}
 $$
 
 Tight, sharply curved functions have high kinetic energy. This is the quantum mechanical reason an electron does not simply fall into the nucleus: squeezing it into a smaller space raises its kinetic energy.
@@ -349,7 +353,7 @@ Tight, sharply curved functions have high kinetic energy. This is the quantum me
 **Nuclear attraction**, `int1e_nuc`:
 
 $$
-V_{\mu\nu} = \int \chi_\mu(\mathbf{r}) \left( -\sum_{A=1}^{M} \frac{Z_A}{\lvert \mathbf{r} - \mathbf{R}_A \rvert} \right) \chi_\nu(\mathbf{r})\, d\mathbf{r}
+V_{\mu\nu} = \int \chi_\mu(\mathbf{r}) \left( -\sum_{A=1}^{M} \frac{Z_A}{\lvert \mathbf{r} - \mathbf{R}_A \rvert} \right) \chi_\nu(\mathbf{r})\thinspace d\mathbf{r}
 $$
 
 The attraction to all the nuclei. It is negative. Together, $\mathbf{H}^{\text{core}} = \mathbf{T} + \mathbf{V}$ is the matrix of the core Hamiltonian $\hat{h}$.
@@ -357,7 +361,7 @@ The attraction to all the nuclei. It is negative. Together, $\mathbf{H}^{\text{c
 **Two-electron repulsion integrals**, `int2e`:
 
 $$
-(\mu\nu \vert \lambda\sigma) = \iint \chi_\mu(\mathbf{r}_1)\, \chi_\nu(\mathbf{r}_1)\, \frac{1}{r_{12}}\, \chi_\lambda(\mathbf{r}_2)\, \chi_\sigma(\mathbf{r}_2)\; d\mathbf{r}_1\, d\mathbf{r}_2
+(\mu\nu \vert \lambda\sigma) = \iint \chi_\mu(\mathbf{r}_1)\thinspace \chi_\nu(\mathbf{r}_1)\thinspace \frac{1}{r_{12}}\thinspace \chi_\lambda(\mathbf{r}_2)\thinspace \chi_\sigma(\mathbf{r}_2)\thickspace d\mathbf{r}_1\thinspace d\mathbf{r}_2
 $$
 
 Read it as the electrostatic repulsion between two charge clouds: $\chi_\mu\chi_\nu$ for electron 1 and $\chi_\lambda\chi_\sigma$ for electron 2. These integrals are the expensive part of Hartree-Fock. With four indices there are $K^4$ of them. Swapping $\mu \leftrightarrow \nu$, swapping $\lambda \leftrightarrow \sigma$, or swapping the two pairs does not change the value, which cuts the number of distinct integrals by about a factor of 8. For water in cc-pVDZ, $K = 24$, so there are $24^4 = 331{,}776$ integrals, of which 45,150 are distinct. This $K^4$ growth is why Hartree-Fock is said to scale formally as the fourth power of the basis size, and why the [Gaussian product theorem](basis_set.md) matters so much.
@@ -367,18 +371,18 @@ Read it as the electrostatic repulsion between two charge clouds: $\chi_\mu\chi_
 To build $F_{\mu\nu}$ we need the Coulomb and exchange operators in the basis. Substituting $\phi_j = \sum_\lambda C_{\lambda j}\chi_\lambda$ into the definitions of $\hat{J}_j$ and $\hat{K}_j$ from Section 6:
 
 $$
-\int \chi_\mu\, \hat{J}_j\, \chi_\nu \, d\mathbf{r} = \sum_{\lambda\sigma} C_{\lambda j} C_{\sigma j}\, (\mu\nu \vert \lambda\sigma),
+\int \chi_\mu\thinspace \hat{J}_j\thinspace \chi_\nu \thinspace d\mathbf{r} = \sum_{\lambda\sigma} C_{\lambda j} C_{\sigma j}\thinspace (\mu\nu \vert \lambda\sigma),
 \qquad
-\int \chi_\mu\, \hat{K}_j\, \chi_\nu \, d\mathbf{r} = \sum_{\lambda\sigma} C_{\lambda j} C_{\sigma j}\, (\mu\lambda \vert \nu\sigma)
+\int \chi_\mu\thinspace \hat{K}_j\thinspace \chi_\nu \thinspace d\mathbf{r} = \sum_{\lambda\sigma} C_{\lambda j} C_{\sigma j}\thinspace (\mu\lambda \vert \nu\sigma)
 $$
 
 The coefficients of the occupied orbitals always appear in the same combination, so we give it a name, the **density matrix**:
 
 $$
-D_{\lambda\sigma} = 2 \sum_{j=1}^{N/2} C_{\lambda j}\, C_{\sigma j}
+D_{\lambda\sigma} = 2 \sum_{j=1}^{N/2} C_{\lambda j}\thinspace C_{\sigma j}
 $$
 
-The factor 2 is the two electrons in each orbital. The density matrix contains everything about where the electrons are: the electron density is $\rho(\mathbf{r}) = \sum_{\lambda\sigma} D_{\lambda\sigma}\, \chi_\lambda(\mathbf{r})\chi_\sigma(\mathbf{r})$, and integrating it gives the number of electrons, $\sum_{\lambda\sigma} D_{\lambda\sigma} S_{\lambda\sigma} = N$.
+The factor 2 is the two electrons in each orbital. The density matrix contains everything about where the electrons are: the electron density is $\rho(\mathbf{r}) = \sum_{\lambda\sigma} D_{\lambda\sigma}\thinspace \chi_\lambda(\mathbf{r})\chi_\sigma(\mathbf{r})$, and integrating it gives the number of electrons, $\sum_{\lambda\sigma} D_{\lambda\sigma} S_{\lambda\sigma} = N$.
 
 Summing over the occupied orbitals $j$ with the factors $2\hat{J}_j - \hat{K}_j$ then gives the Fock matrix:
 
