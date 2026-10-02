@@ -9,4 +9,7 @@ relative_links:
 
 include:
   - README.md
-
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
